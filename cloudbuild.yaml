@@ -16,7 +16,9 @@ steps:
     name: "gcr.io/cloud-builders/docker"
     entrypoint: "bash"
     args:
-      ["-c", "docker login --username=evertoncorrea --password=${_PASSWORD}"]
-
+      [
+        "-c",
+        "echo ${_PASSWORD} | docker login --username=evertoncorrea --password-stdin",
+      ]
 images:
   - "evertoncorrea/go-hpa"
