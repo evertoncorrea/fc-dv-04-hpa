@@ -1,0 +1,12 @@
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: go-rocks-sqrt
+spec:
+  maxReplicas: 6
+  minReplicas: 1
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: go-rocks-sqrt
+  targetCPUUtilizationPercentage: 15

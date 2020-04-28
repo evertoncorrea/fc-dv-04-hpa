@@ -1,0 +1,22 @@
+steps:
+  - id: "Construindo app"
+    name: "gcr.io/cloud-builders/go"
+    args: ["build", "./src/main.go"]
+    env: ["GOOS=linux"]
+
+  - id: "Criando container"
+    name: "gcr.io/cloud-builders/docker"
+    args:
+      - "build"
+      - "-t"
+      - "evertoncorrea/go-hpa"
+      - "."
+
+  - id: "login no Docker Hub"
+    name: "gcr.io/cloud-builders/docker"
+    entrypoint: "bash"
+    args:
+      ["-c", "docker login --username=evertoncorrea --password=${_PASSWORD}"]
+
+images:
+  - "evertoncorrea/go-hpa"
