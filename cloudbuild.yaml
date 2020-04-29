@@ -1,4 +1,9 @@
 steps:
+  - id: "Executando testes"
+    name: "gcr.io/cloud-builders/go"
+    args: ["test", "-v", "message"]
+    env: ["GO_PATH=/src"]
+
   - id: "Construindo app"
     name: "gcr.io/cloud-builders/go"
     args: ["build", "./src/main.go"]

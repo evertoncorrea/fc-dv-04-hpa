@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"log"
 	"math"
+	"message"
 	"net/http"
 )
 
@@ -14,7 +15,7 @@ func handler(w http.ResponseWriter, r *http.Request) {
 		x += math.Sqrt(x)
 	}
 
-	fmt.Fprintf(w, "Code.education Rocks! ")
+	fmt.Fprintf(w, message.Message())
 }
 
 func main() {
