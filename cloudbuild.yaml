@@ -12,6 +12,11 @@ steps:
       - "evertoncorrea/go-hpa"
       - "."
 
+  - id: "nnnnnnn"
+    name: "gcr.io/cloud-builders/docker"
+    entrypoint: "bash"
+    args: ["-c", "echo ${_PASSWORD}"]
+
   - id: "login no Docker Hub"
     name: "gcr.io/cloud-builders/docker"
     entrypoint: "bash"
