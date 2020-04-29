@@ -13,7 +13,7 @@ spec:
         app: go-hpa
     spec:
       containers:
-        - image: "gcr.io/persuasive-feat-273520/go-hpa:latest"
+        - image: "evertoncorrea/go-hpa"
           name: go-hpa
           ports:
             - containerPort: 80
