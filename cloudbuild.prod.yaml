@@ -27,7 +27,7 @@ steps:
     args:
       - "-c"
       - |
-        sed 's#img-deployment#gcr.io/$PROJECT_ID/go-rocks:$SHORT_SHA#global' k8s/deployment.yaml > k8s/deployment-new.yaml
+        sed 's#img-deployment#gcr.io/$PROJECT_ID/go-rocks:$SHORT_SHA#g' k8s/deployment.yaml > k8s/deployment-new.yaml
         cat k8s/deployment-new.yaml;
 
   - id: "Deploying k8s"
